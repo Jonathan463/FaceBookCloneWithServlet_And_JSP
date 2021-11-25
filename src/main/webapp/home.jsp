@@ -197,10 +197,10 @@
                 <div class="col-lg-6">
                     <div class="scroller like-icon" style="height:  700px">
                         <%for (Post each:posts) {%>
-                                <div class="linear" style="background-color: #ffffff">
+                                <div class="linear" style="background-color: #242527">
                                     <div class="titleText">
-                                        <h2 style="color: #fff; padding: 10px; background-color: dodgerblue"><%=each.getTitle()%></h2>
-                                        <p style="color: #000; padding: 10px;"><span style="font-weight: bold; font-size: 1.1em;">Author:</span><%=each.getName()%></p>
+                                        <h2 style="color: black; padding: 10px; background-color: #242527"><%=each.getTitle()%></h2>
+<%--                                        <p style="color: #000; padding: 10px;"><span style="font-weight: bold; font-size: 1.1em;"></span><%=each.getName()%></p>--%>
                                     </div>
                                     <img src="./image/<%=each.getImageName()%>" class="majorpix" alt="" />
                                 </div>
