@@ -1,5 +1,6 @@
 package DOA;
 
+import dbConnectionProvider.DbConnection;
 import model.User;
 import utils.PasswordHashing;
 
@@ -26,7 +27,7 @@ public class UserDatabase {
             String query = " INSERT INTO user (firstName,lastName,email,password) values"
                     + "(?,?,?,?);";
 
-            PreparedStatement preparedStatement = this.dbConnection.prepareStatement(query);
+            PreparedStatement preparedStatement = DbConnection.getConnection().prepareStatement(query);
             preparedStatement.setString(1, user.getFirstName());
             preparedStatement.setString(2, user.getLastName());
             preparedStatement.setString(3, user.getEmail());

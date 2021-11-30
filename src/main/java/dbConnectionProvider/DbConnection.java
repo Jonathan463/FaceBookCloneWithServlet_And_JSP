@@ -10,8 +10,8 @@ public class DbConnection {
     public static Connection getConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/users?serverTimezone=UTC",
-                    "root", "er0swccd");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/facebook?serverTimezone=UTC",
+                    "root", "30496039");
 //            facebookmini?autoReconnect=true&serverTimezone=UTC&useSSL=False&allowPublicKeyRetrieval=true
 
             if(connection != null){

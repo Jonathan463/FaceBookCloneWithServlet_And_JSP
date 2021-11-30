@@ -1,10 +1,14 @@
 //package com.example.FacebookClone.DOA;
 //
+//import DOA.UserDatabase;
 //import dbConnectionProvider.DbConnection;
-//import com.example.FacebookClone.model.User;
-//import com.example.FacebookClone.utils.PasswordHashing;
+////import com.example.FacebookClone.model.User;
+////import com.example.FacebookClone.utils.PasswordHashing;
+//import model.User;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;
+//import utils.PasswordHashing;
+//
 //import static org.junit.jupiter.api.Assertions.*;
 //
 //class UserDatabaseTest {
@@ -14,7 +18,7 @@
 //    @BeforeEach
 //    void setup(){
 //        String password = PasswordHashing.encryptPassword("password");
-//        user = new User("firstname","surname","numEmail",password,"sob","gender");
+//        user = new User("firstname","lastname","email",password);
 //    }
 //
 //    @Test
@@ -24,17 +28,17 @@
 //        boolean success = userDatabaseTest.registerUser(user);
 //        assertTrue(success);
 //
-//        User user = loginUser("numEmail", "password");
+//        User user = loginUser("email", "password");
 //        assertNotNull(user);
 //
-//        assertNotNull(user.getUserName());
+//        //assertNotNull(user.getUserName());
 //        assertNotNull(user.getFirstName());
 //        assertNotNull(user.getLastName());
 //        assertNotNull(user.getEmail());
 //        assertNotNull(user.getPassword());
 //
 //
-//        assertEquals(user.getUserName(), "username");
+//       // assertEquals(user.getUserName(), "username");
 //        assertEquals(user.getFirstName(), "firstname");
 //        assertEquals(user.getLastName(), "lastname");
 //        assertEquals(user.getEmail(), "email");

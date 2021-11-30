@@ -41,22 +41,25 @@ public class PostServlet extends HttpServlet {
             int userId = currentUser.getId();
 
             //check if image name not empty
-            if(imageName.equals("")){
-                httpSession.setAttribute("message", "Enter a picture");
-                response.sendRedirect("home.jsp");
-                return;
-            }
+//            if(imageName.equals("")){
+//                httpSession.setAttribute("message", "Enter a picture");
+//                response.sendRedirect("home.jsp");
+//                return;
+//            }
 
             //path to store image
-            String path = "/Users/decagon/Downloads/facebook_mini6/src/main/webapp/image"+File.separator+imageName;
+            String path = "/Users/decagon/Downloads/facebook_mini7/src/main/webapp/image"+File.separator+imageName;
 
             InputStream in = part.getInputStream();
+
             boolean success = uploadFile(in, path);
 
             if(success){
                 Post post = new Post(title, body, imageName);
                 PostDatabase postDatabase = new PostDatabase(DbConnection.getConnection());
 
+                System.out.println("userid "+userId);
+                System.out.println("postId " +post);
                 if(postDatabase.createPost(userId, post)){
                     out.println("File uploaded to this directory "+path);
                     httpSession.setAttribute("message", "File uploaded successfully");
@@ -64,7 +67,22 @@ public class PostServlet extends HttpServlet {
                     out.print("500 error");
                     httpSession.setAttribute("message", "Error uploading image to database");
                 }
-            }else{
+            }
+            else if(imageName.equals("")){
+                Post post = new Post(title, body);
+                PostDatabase postDatabase = new PostDatabase(DbConnection.getConnection());
+
+                //System.out.println("userid "+userId);
+                System.out.println("postId " +post);
+                if(postDatabase.createPost(userId, post)){
+                    out.println("File uploaded to this directory "+path);
+                    httpSession.setAttribute("message", "File uploaded successfully");
+                }else{
+                    out.print("500 error");
+                    httpSession.setAttribute("message", "Error uploading image to database");
+                }
+            }
+            else{
                 out.print("error");
                 httpSession.setAttribute("message", "error uploading file");
             }

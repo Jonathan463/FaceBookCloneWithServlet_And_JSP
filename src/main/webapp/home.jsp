@@ -141,7 +141,7 @@
                 <div class="col-lg-3">
                     <div class="fix">
                         <div>
-                            <img src="image/me.jpg" href="image/me.jpg" class="pix" alt="" />
+                            <img src="image/jonathan.jpg" href="image/jonathan.jpg" class="pix" alt="" />
                             <p class="yourfeed"><%=user.getFirstName() +" "+ user.getLastName() %> </p>
                         </div>
                         <div class="yourfeed1">
@@ -196,18 +196,24 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="scroller like-icon" style="height:  700px">
+
                         <%for (Post each:posts) {%>
-                                <div class="linear" style="background-color: #242527">
-                                    <div class="titleText">
-                                        <h2 style="color: black; padding: 10px; background-color: #242527"><%=each.getTitle()%></h2>
-<%--                                        <p style="color: #000; padding: 10px;"><span style="font-weight: bold; font-size: 1.1em;"></span><%=each.getName()%></p>--%>
-                                    </div>
-                                    <img src="./image/<%=each.getImageName()%>" class="majorpix" alt="" />
-                                </div>
-                                <div class="body">
-                                    <p><%=each.getBody()%></p>
-                                </div>
-                                <hr>
+                        <div class="linear" style="background-color: #ffffff">
+                            <div class="titleText">
+                                <h2 style="color: #fff; padding: 10px; background-color: dodgerblue"><%=each.getTitle()%></h2>
+                            </div>
+                            <% if (each.getImageName() != null && each.getImageName().length()>1) {%>
+                            <div class="postImage">
+                                <img src="./image/<%=each.getImageName()%>" class="majorpix" alt="" />
+                            </div>
+                            <% } else { %>
+                            <img src="./image/<%=each.getImageName()%>" class="majorpix" alt="" style="display: none"/>
+                            <% } %>
+                        </div>
+                        <div class="body">
+                            <p><%=each.getBody()%></p>
+                        </div>
+                        <hr>
                                 <div class="comment_like_share mb-2">
                                     <div class="like">
                                         <i onclick="like(<%=each.getId()%>, <%=user.getId()%>)" id="<%=each.getId()%>"
@@ -244,6 +250,7 @@
                                        </button>
                                    </form>
                                 </div>
+<%--                        <%}%>--%>
                             <%}
                         %>
                     </div>
@@ -293,6 +300,13 @@
             </div>
         </div>
         <footer></footer>
+<script>
+    function com(postId){
+        //alert("i got here");
+         window.location.href = "/comment.jsp?post="+postId;
+        // window.location.href = "/comment.jsp";
+    }
+</script>
         <script
                 src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
                 integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"

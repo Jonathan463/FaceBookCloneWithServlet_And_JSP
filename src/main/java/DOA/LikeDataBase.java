@@ -32,7 +32,7 @@ public class LikeDataBase {
                 preparedStatement.executeUpdate();
                 success = true;
             }else{
-                query = "delete from likes where user_id="+userId+" and post_id="+postId;
+                query = "delete from likes where like_user_id="+userId+" and post_id="+postId;
                 preparedStatement = DbConnection.getConnection().prepareStatement(query);
                 int result = preparedStatement.executeUpdate();
 

@@ -20,12 +20,13 @@ window.onload = () => {
 
 //edit post
 function edit(postId){
-    window.location.href = "/FacebookClonable_war_exploded/edit.jsp?post="+postId;
+    window.location.href = "/edit.jsp?post="+postId;
 }
 
 //comment on post
 function com(postId){
-    window.location.href = "/FacebookClonable_war_exploded/comment.jsp?post="+postId;
+    alert("i got here");
+    //  window.location.href = "/comment.jsp?post="+postId;
     // window.location.href = "/comment.jsp";
 }
 
